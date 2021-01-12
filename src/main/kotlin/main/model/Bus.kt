@@ -1,4 +1,4 @@
-package main
+package main.model
 
 data class Bus(
     val average_people_count: Int,

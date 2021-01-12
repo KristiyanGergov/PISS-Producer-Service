@@ -1,4 +1,4 @@
-package main
+package main.model
 
 data class Station(
     val current: String,

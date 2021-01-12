@@ -4,7 +4,8 @@ import io.streamthoughts.kafka.clients.kafka
 import io.streamthoughts.kafka.clients.producer.Acks
 import io.streamthoughts.kafka.clients.producer.ProducerContainer
 import io.streamthoughts.kafka.clients.producer.callback.closeOnErrorProducerSendCallback
-import io.streamthoughts.kafka.clients.producer.loadProducerConfigs
+import main.model.Container
+import main.model.ContainerSerializer
 import org.apache.kafka.common.serialization.StringSerializer
 
 object KafkaController {
