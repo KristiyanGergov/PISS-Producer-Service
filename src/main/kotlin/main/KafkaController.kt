@@ -13,7 +13,7 @@ object KafkaController {
     private const val CLIENT_ID = ""
     private const val TOPIC = ""
 
-    private val PRODUCER: ProducerContainer<String, Bus> = kafka(BOOTSTRAP_SERVER) {
+    private val PRODUCER: ProducerContainer<String, Container> = kafka(BOOTSTRAP_SERVER) {
         client {
             clientId(CLIENT_ID)
         }
@@ -23,7 +23,7 @@ object KafkaController {
                 acks(Acks.InSyncReplicas)
             }
             keySerializer(StringSerializer())
-            valueSerializer(BusSerializer())
+            valueSerializer(ContainerSerializer())
 
             defaultTopic(topic = TOPIC)
 
@@ -35,7 +35,7 @@ object KafkaController {
         }
     }
 
-    fun send(messages: List<Bus>) {
+    fun send(messages: List<Container>) {
         PRODUCER.use {
             PRODUCER.init()
             messages.forEach {
